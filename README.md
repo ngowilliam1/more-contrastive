@@ -20,4 +20,4 @@ cd more-contrastive
 conda env create -f environment.yml
 
 # activate the conda environment
-conda activate yolact-env-city
+conda activate PyConEnv
