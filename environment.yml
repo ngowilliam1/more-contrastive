@@ -12,20 +12,16 @@ channels:
 dependencies:
   - python==3.6
   - pip
-  - cython
   - ipython
   - ipdb
   - jupyterlab
-  - pytorch::pytorch >=1.6
-  - pytorch::torchvision
-  - cudatoolkit
-  - notebook
-  - cudnn
+  - pytorch::pytorch==1.6
+  - pytorch::torchvision ==0.7.0
+  - cudatoolkit==10.1
   - scikit-learn
   - scikit-image==0.14.3
   - pytorch::cuda100
   - matplotlib
-  - tensorboard
   - git
   - seaborn
   - h5py
@@ -35,7 +31,5 @@ dependencies:
   - conda-forge::bash # to download kitti dataset
   - pip:
     - opencv-python 
-    - pycocotools 
     - tensorboard_logger
     - pillow==6.1.0
-    - PyQt5 # needed on KDE/Qt envs for matplotlib
