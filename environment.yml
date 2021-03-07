@@ -3,7 +3,7 @@
 # TODO: you must additionally install nVidia drivers, eg. on Ubuntu linux 
 # `apt install nvidia-driver-440` (change the 440 for whatever version you need/have).
 #
-name: PyConEnv
+name: PyConEnvTEST
 #prefix: /your/custom/path/envs/PyConEnv
 channels:
   - conda-forge
@@ -12,12 +12,11 @@ channels:
 dependencies:
   - python==3.6
   - pip
-  - ipython
   - ipdb
   - jupyterlab
   - pytorch::pytorch==1.6
-  - pytorch::torchvision ==0.7.0
-  - cudatoolkit==10.1
+  - pytorch::torchvision==0.7.0
+  - pytorch::cuda100
   - scikit-learn
   - scikit-image==0.14.3
   - pytorch::cuda100
@@ -26,9 +25,7 @@ dependencies:
   - seaborn
   - h5py
   - gdown # to download kitti dataset
-  - curl # to download kitti dataset
   - unzip # to download kitti dataset
-  - conda-forge::bash # to download kitti dataset
   - pip:
     - opencv-python 
     - tensorboard_logger
