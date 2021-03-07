@@ -1,0 +1,41 @@
+# Advantage is you get working CUDA+cuDNN+pytorch+torchvison versions.
+#
+# TODO: you must additionally install nVidia drivers, eg. on Ubuntu linux 
+# `apt install nvidia-driver-440` (change the 440 for whatever version you need/have).
+#
+name: PyConEnv
+#prefix: /your/custom/path/envs/PyConEnv
+channels:
+  - conda-forge
+  - pytorch
+  - defaults
+dependencies:
+  - python==3.6
+  - pip
+  - cython
+  - ipython
+  - ipdb
+  - jupyterlab
+  - pytorch::pytorch >=1.6
+  - pytorch::torchvision
+  - cudatoolkit
+  - notebook
+  - cudnn
+  - scikit-learn
+  - scikit-image==0.14.3
+  - pytorch::cuda100
+  - matplotlib
+  - tensorboard
+  - tensorboard_logger
+  - git
+  - seaborn
+  - h5py
+  - gdown # to download kitti dataset
+  - curl # to download kitti dataset
+  - unzip # to download kitti dataset
+  - conda-forge::bash # to download kitti dataset
+  - pip:
+    - opencv-python 
+    - pycocotools 
+    - pillow==6.1.0
+    - PyQt5 # needed on KDE/Qt envs for matplotlib
