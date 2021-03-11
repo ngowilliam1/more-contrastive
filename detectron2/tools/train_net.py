@@ -37,9 +37,6 @@ from detectron2.evaluation import (
     SemSegEvaluator,
     verify_results,
 )
-from detectron2.data.datasets.kitti_voc import register_kitti_voc
-
-exit()
 from detectron2.modeling import GeneralizedRCNNWithTTA
 
 
@@ -129,29 +126,12 @@ def setup(args):
     return cfg
 
 
-# ==== Predefined splits for KITTI VOC ===========
-def register_all_kitti_voc():
-    root = os.getenv("DETECTRON2_DATASETS", "datasets")
-    SPLITS = [
-        ("kitti_train", "KITTI_OD", "train"),
-        ("kitti_val", "KITTI_OD", "val"),
-    ]
-    for name, dirname, split in SPLITS:
-        register_kitti_voc(name, os.path.join(root, dirname), split)
-        MetadataCatalog.get(name).evaluator_type = "pascal_voc"
 
 def main(args):
     cfg = setup(args)
     args.eval_only = True
     if args.eval_only:
         model = Trainer.build_model(cfg)
-        """
-        To Delete
-        """
-        Trainer.test_with_TTA(cfg, model)
-        exit()
-        """
-        """
         DetectionCheckpointer(model, save_dir=cfg.OUTPUT_DIR).resume_or_load(
             cfg.MODEL.WEIGHTS, resume=args.resume
         )
@@ -179,9 +159,6 @@ def main(args):
 if __name__ == "__main__":
     args = default_argument_parser().parse_args()
     print("Command Line Args:", args)
-    register_all_kitti_voc()
-    print('gotcha 2')
-    exit()
     launch(
         main,
         args.num_gpus,

@@ -1,4 +1,4 @@
 detection/*.pth
 detection/*.pkl
-detectron2/weights
-detectron2/dataset
+detectron2/weights/*
+detectron2/datasets/*
