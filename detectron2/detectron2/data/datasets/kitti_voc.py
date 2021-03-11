@@ -2,15 +2,12 @@ import numpy as np
 import os
 import xml.etree.ElementTree as ET
 from typing import List, Tuple, Union
-import random
-import cv2
+
 from detectron2.data import DatasetCatalog, MetadataCatalog
 from detectron2.structures import BoxMode
 from detectron2.utils.file_io import PathManager
-from detectron2.utils.visualizer import Visualizer
-from google.colab.patches import cv2_imshow
-#__all__ = ["load_voc_instances", "register_pascal_voc"]
 
+__all__ = ["load_kitti_instances", "register_kitti_voc"]
 
 # fmt: off
 CLASS_NAMES = (
@@ -20,7 +17,7 @@ CLASS_NAMES = (
 
 
 
-def load_voc_instances(dirname: str, split: str, class_names: Union[List[str], Tuple[str, ...]]):
+def load_kitti_instances(dirname: str, split: str, class_names: Union[List[str], Tuple[str, ...]]):
     """
     Load Pascal VOC detection annotations to Detectron2 format.
 
@@ -74,23 +71,8 @@ def load_voc_instances(dirname: str, split: str, class_names: Union[List[str], T
 
 
 
-
-def register_pascal_voc(name, dirname, split, year, class_names=CLASS_NAMES):
-    DatasetCatalog.register(name, lambda: load_voc_instances(dirname, split, class_names))
+def register_kitti_voc(name, dirname, split, year=2012, class_names=CLASS_NAMES):
+    DatasetCatalog.register(name, lambda: load_kitti_instances(dirname, split, class_names))
     MetadataCatalog.get(name).set(
         thing_classes=list(class_names), dirname=dirname, year=year, split=split
     )
-
-name = "kitti_train"
-register_pascal_voc(name, 'VOC2012', "trainval", 2021)
-board_metadata = MetadataCatalog.get(name)
-
-#Visualizing the Train Dataset
-dataset_dicts = load_voc_instances('VOC2012', "trainval", CLASS_NAMES)
-#Randomly choosing 3 images from the Set
-for da in random.sample(dataset_dicts, 3):
-    print(da["file_name"])
-    img = cv2.imread(da["file_name"])
-    visualizer = Visualizer(img[:, :, ::-1], metadata=board_metadata)
-    vis = visualizer.draw_dataset_dict(da)
-    cv2_imshow(vis.get_image()[:, :, ::-1])

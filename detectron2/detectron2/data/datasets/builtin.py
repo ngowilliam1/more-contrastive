@@ -28,6 +28,7 @@ from .coco import load_sem_seg, register_coco_instances
 from .coco_panoptic import register_coco_panoptic, register_coco_panoptic_separated
 from .lvis import get_lvis_instances_meta, register_lvis_instances
 from .pascal_voc import register_pascal_voc
+from .kitti_voc import register_kitti_voc
 
 # ==== Predefined datasets and splits for COCO ==========
 
@@ -233,6 +234,18 @@ def register_all_pascal_voc(root):
         MetadataCatalog.get(name).evaluator_type = "pascal_voc"
 
 
+# ==== Predefined splits for KITTI VOC ===========
+def register_all_kitti_voc(root):
+    SPLITS = [
+        ("kitti_train", "KITTI_OD", "train"),
+        ("kitti_val", "KITTI_OD", "val"),
+    ]
+    for name, dirname, split in SPLITS:
+        register_kitti_voc(name, os.path.join(root, dirname), split)
+        MetadataCatalog.get(name).evaluator_type = "pascal_voc"
+        
+
+
 def register_all_ade20k(root):
     root = os.path.join(root, "ADEChallengeData2016")
     for name, dirname in [("train", "training"), ("val", "validation")]:
@@ -260,4 +273,5 @@ if __name__.endswith(".builtin"):
     register_all_cityscapes(_root)
     register_all_cityscapes_panoptic(_root)
     register_all_pascal_voc(_root)
+    register_all_kitti_voc(_root)
     register_all_ade20k(_root)
