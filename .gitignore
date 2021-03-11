@@ -4,3 +4,4 @@ detectron2/weights/*
 detectron2/datasets/*
 detectron2/build/*
 detectron2/build
+detectron2/output
