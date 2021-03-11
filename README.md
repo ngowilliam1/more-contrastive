@@ -17,11 +17,11 @@ git clone https://github.com/ngowilliam1/more-contrastive.git
 cd more-contrastive 
 
 # Create env with requirements
-conda env create -f environment.yml
-conda install pytorch==1.6.0 torchvision==0.7.0 cudatoolkit=10.1 -c pytorch
-
-# activate the conda environment
+conda create -n PyConEnv python=3.7 -y
 conda activate PyConEnv
+conda install pytorch==1.6.0 torchvision==0.7.0 cudatoolkit=10.1 -c pytorch
+pip install -r requirements.txt
+
 ```
 
 ### To Obtain Kitti Dataset
