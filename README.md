@@ -28,7 +28,7 @@ pip install -r requirements.txt
 ```bash
 cd data
 # Download Cityscapes annotations and images:
-gdown https://drive.google.com/uc?id=1LqqRBDh1LOEsW5NEX2gP5aievmfy0ac4
+gdown https://drive.google.com/uc?id=1wQyPZfdtgQ9g2UTErkr1W1f-aUk9gpgm
 # Extract
 unzip -q KITTI_OD.zip
 ```
