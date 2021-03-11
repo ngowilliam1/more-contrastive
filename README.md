@@ -18,6 +18,7 @@ cd more-contrastive
 
 # Create env with requirements
 conda env create -f environment.yml
+conda install pytorch==1.6.0 torchvision==0.7.0 cudatoolkit=10.1 -c pytorch
 
 # activate the conda environment
 conda activate PyConEnv
