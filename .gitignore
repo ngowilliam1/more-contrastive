@@ -2,3 +2,4 @@ detection/*.pth
 detection/*.pkl
 detectron2/weights/*
 detectron2/datasets/*
+detectron2/build/*
