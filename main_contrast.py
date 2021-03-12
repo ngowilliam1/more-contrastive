@@ -18,7 +18,8 @@ from memory.build_memory import build_mem
 def main():
     args = TrainOptions().parse()
 
-    args.distributed = args.world_size > 1 or args.multiprocessing_distributed
+    # args.distributed = args.world_size > 1 or args.multiprocessing_distributed
+    args.distributed = args.multiprocessing_distributed
     ngpus_per_node = torch.cuda.device_count()
 
     if args.multiprocessing_distributed:

@@ -349,7 +349,8 @@ def build_contrast_loader(opt, ngpus_per_node):
     train_transform, jigsaw_transform = \
         build_transforms(aug, modal, use_memory_bank)
 
-    train_dir = os.path.join(data_folder, 'train')
+    # train_dir = os.path.join(data_folder, 'train')
+    train_dir = data_folder
     if use_jigsaw:
         train_dataset = ImageFolderInstance(
             train_dir, transform=train_transform,
