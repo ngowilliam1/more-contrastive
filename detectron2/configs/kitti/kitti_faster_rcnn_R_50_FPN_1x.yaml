@@ -28,8 +28,8 @@ DATASETS:
   TRAIN: ('kitti_train',)
   TEST: ('kitti_val',)
 SOLVER:
-  IMS_PER_BATCH: 2
+  IMS_PER_BATCH: 6
   STEPS: (12000, 16000) # From voc config
-  MAX_ITER: 40  # 17.4 epochs
+  MAX_ITER: 18000  # 17.4 epochs
   # BIG NONO THIS WARMUP ITERS!
   #WARMUP_ITERS: 100
