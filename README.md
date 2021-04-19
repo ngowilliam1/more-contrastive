@@ -33,6 +33,8 @@ gdown https://drive.google.com/uc?id=1wQyPZfdtgQ9g2UTErkr1W1f-aUk9gpgm
 tar -xvf KITTI_OD.tar.xz
 ```
 
+### To Obtain nuImages Dataset
+
 ### Download Weights
 Download required weights from [PyContrast](https://github.com/HobbitLong/PyContrast/blob/master/pycontrast/docs/MODEL_ZOO.md)
 
