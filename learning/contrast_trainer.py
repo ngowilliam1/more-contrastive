@@ -89,12 +89,12 @@ class ContrastTrainer(BaseTrainer):
                 checkpoint = torch.load(args.resume, map_location='cpu')
                 start_epoch = checkpoint['epoch'] + 1
                 model.load_state_dict(checkpoint['model'])
-                contrast.load_state_dict(checkpoint['contrast'])
-                optimizer.load_state_dict(checkpoint['optimizer'])
+                # contrast.load_state_dict(checkpoint['contrast'])
+                # optimizer.load_state_dict(checkpoint['optimizer'])
                 if isinstance(model_ema, torch.nn.Module):
                     model_ema.load_state_dict(checkpoint['model_ema'])
-                if args.amp:
-                    amp.load_state_dict(checkpoint['amp'])
+                # if args.amp:
+                #    amp.load_state_dict(checkpoint['amp'])
                 print("=> loaded successfully '{}' (epoch {})"
                       .format(args.resume, checkpoint['epoch']))
                 del checkpoint
