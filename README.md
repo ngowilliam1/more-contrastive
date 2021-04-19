@@ -39,7 +39,11 @@ Download required weights from [PyContrast](https://github.com/HobbitLong/PyCont
 
 
 ### To train OD
-1. Install [Detectron2](https://github.com/facebookresearch/detectron2).
+1. Install Detectron2
+'''
+cd detectron2
+python -m pip install ./
+'''
 2. Convert pre-trained models to Detectron2 models:
 ```
 python convert_pretrained.py model.pth det_model.pkl
@@ -49,7 +53,7 @@ python convert_pretrained.py model.pth det_model.pkl
 4. Go to Detectron2's folder, and run:
 ```
 python tools/train_net.py \
-  --num-gpus 8 \
+  --num-gpus 1 \
   --config-file /path/to/config/config.yaml \
   MODEL.WEIGHTS /path/to/model/det_model.pkl
 ```
