@@ -35,13 +35,22 @@ tar -xvf KITTI_OD.tar.xz
 
 ### To Obtain nuImages Dataset
 
+Download nuImages samples from nuScenes [website](https://www.nuscenes.org/download)
+
 ### Download Weights
-Download required weights from [PyContrast](https://github.com/HobbitLong/PyContrast/blob/master/pycontrast/docs/MODEL_ZOO.md)
+Download the pretrained weight:
+| Model |
+|-|
+|[InfoMin200](https://drive.google.com/file/d/10kHOwtlzufZI8wCtqycfQm4EXGlGfrZk/view?usp=sharing)|
+|[InfoMin800](https://drive.google.com/file/d/1kOKXSfs_7zJkn4tEhgAUDpjxsXDaqGM3/view?usp=sharing) |
+|[InfoMin800v2](https://drive.google.com/file/d/1VBCo5B4Zlc0G2VkA2Wl7qMTwo013wsvM/view?usp=sharing) |
 
-InfoMin_200.pth and InfoMin_800.pth
-
+(These weights are originally from [PyContrast](https://github.com/HobbitLong/PyContrast/blob/master/pycontrast/docs/MODEL_ZOO.md) but the format is slightly changed to allow retraining and some inconsistencies in the layers' names were fixed).
 
 ### To Contrastively Retrain InfoMin
+```
+python main_contrast.py --method InfoMin --cosine --data_folder path/to/dataset/ --multiprocessing-distributed --world-size 1 --rank 0 -j 4 --batch_size 32 --resume path/to/pretrained/weights.pth --learning_rate 0.003 --epochs 100
+```
 
 ### To train OD
 1. Install Detectron2
