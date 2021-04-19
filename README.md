@@ -1,5 +1,7 @@
 # more-contrastive
 
+[Project Paper](https://github.com/ngowilliam1/more-contrastive/blob/main/CSC2516_Project_Report.pdf)
+
 ### Requirements
 
 - conda
