@@ -39,6 +39,8 @@ Download required weights from [PyContrast](https://github.com/HobbitLong/PyCont
 InfoMin_200.pth and InfoMin_800.pth
 
 
+### To Contrastively Retrain InfoMin
+
 ### To train OD
 1. Install Detectron2
 ```
