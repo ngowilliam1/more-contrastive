@@ -1,11 +1,11 @@
 _BASE_: "../Base-RCNN-FPN.yaml"
-OUTPUT_DIR: "info200plus_80EP_mean"
+OUTPUT_DIR: "info200plus_f4_mean"
 MODEL:
   PIXEL_MEAN: [123.675, 116.280, 103.530] #From infomin config
   PIXEL_STD: [58.395, 57.120, 57.375] #From infomin config
   WEIGHTS: "See Instructions"
   BACKBONE:
-   FREEZE_AT: 0
+   FREEZE_AT: 4
   MASK_ON: False
   RESNETS:
     DEPTH: 50
